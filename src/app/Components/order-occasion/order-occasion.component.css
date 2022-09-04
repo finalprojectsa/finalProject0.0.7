@@ -1,0 +1,60 @@
+
+
+
+input.aa{
+  background-color: transparent;
+  
+}
+.form-control{
+  /* margin-left: 7rem; */
+ 
+  /* padding-right: 20rem; */
+  border-color: rgb(161, 73, 29);
+}
+
+
+label{
+  color: white;
+}
+select{
+  border-color: #2b3553;
+  border-radius: 0.4285rem;
+  font-size: 0.75rem;
+  -webkit-transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  -moz-transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  -o-transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  -ms-transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+option{
+  /* background-color: rgb(161, 73, 29); */
+}
+.orderForm{
+  background-color:transparent;
+  border-color:rgb(161, 73, 29); 
+  border-width: 1px;
+}
+.customSize{
+  display: inline-block;
+  margin-right: 1%;
+  margin-left: 1%;
+}
+.half{
+  width: 48%;
+}
+.full{
+  width: 99%;
+}
+.button {
+  transition-duration: 0.4s;
+  
+}
+
+.button:hover {
+  background-color: rgb(161, 73, 29); /* Green */
+  color: white;
+}
+#smartTable{
+  position:absolute;
+  z-index: 5;
+}

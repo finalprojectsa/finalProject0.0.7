@@ -1,0 +1,99 @@
+<!-- <div id="allPage">
+<form [formGroup]="orderOccasionForm" (ngSubmit)="submitOrderOccasionForm($event)">
+<select name="occasionType" id="occasionType" formControlName="occasionType"  [(ngModel)]="selectedOccasion">
+<option [value]="ot.occasionTypeCode" *ngFor="let ot of dataSer.occsionTypeList">{{ot.occasionTypename}}</option>
+</select>
+<br>
+<input type="button" name="chooseGuest" id="chooseGuest" formControlName="chooseGuest" (click)="navigateToSelectGuest()"/>
+<br>
+<input type="button" name="insertRecording" id="insertRecording" formControlName="insertRecording" (click)="insertRecording()"/>
+<br>
+<input type="button" name="recordDetails" id="recordDetails" formControlName="recordDetails" (record-details)="updateRecordDetails($event)" (click)="navigateToRecordDetails()"/>
+<br>
+<app-record-details (record-details)="updateRecordDetails($event)"></app-record-details>
+
+<router-outlet></router-outlet>
+<br>
+<input type="submit" value="סיים">
+</form> -->
+
+
+<div class="container mx-auto px-4 h-full ">
+  <div class="flex content-center items-center justify-center h-full ">
+      <div class="w-full lg:w-6/12 px-4 ">
+          <div
+              class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg orderForm">
+              <div class="rounded-t mb-0 px-6 py-6 ">
+                  <div class="text-center mb-3 ">
+                  
+                      <form [formGroup]="orderOccasionForm" (ngSubmit)="submitOrderOccasionForm($event)">
+                      
+                          <div class="relative w-full mb-3 customSize full">
+                              <label> בחר סוג ארוע </label>
+                              <select name="occasionType" id="occasionType" formControlName="occasionType" [(ngModel)]="selectedOccasion"
+                                class=" form-control">
+                                <option [value]="ot.occasionTypeCode" *ngFor="let ot of dataSer.occsionTypeList">{{ot.occasionTypename}}
+                                </option>
+                              </select>
+                            </div>
+                   
+                  
+                          <div class="relative w-full mb-3 customSize half">
+                          <!-- <div class=" col-md-4 pl-md-1"> -->
+                            <!-- <div class=" form-group"> -->
+                              <input class=" form-control button" type="button" name="chooseGuest" id="chooseGuest" formControlName="chooseGuest"
+                                (click)="navigateToSelectGuest()" />
+                            </div>
+                          <!-- </div> -->
+                        <!-- </div> -->
+                        <div class="relative w-full mb-3 customSize half">
+                          
+                            <!-- <div class=" form-group"> -->
+                              <input class=" form-control" type="button" name="insertRecording" id="insertRecording"
+                                formControlName="insertRecording" (click)="insertRecording()" />
+                            <!-- </div> -->
+                          </div>
+      
+                       
+                          <div class="relative w-full mb-3 customSize half">
+                              <label>הכנס תאריך הודעה ראשונה</label>
+                              <input class=" form-control" type="datetime-local" formControlName="firstMessage" name="firstMessage"
+                                id="firstMessage">
+                            </div>
+                         
+                            <div class="relative w-full mb-3 customSize half">
+                                <label>הכנס תאריך אירוע</label>
+                                <input class=" form-control" type="date" formControlName="occasionDate" name="occasionDate"
+                                  id="occasionDate">
+                              </div>
+                            
+                              <div class="relative w-full mb-3 customSize half">
+                              <label>הכנס מספר פעמים להפצת ההודעה</label>
+                              <input class=" form-control" type="number" formControlName="repetition" name="repetition" id="repetition">
+                            </div>
+                       
+                            <div class="relative w-full mb-3 customSize half">
+                              <label>הכנס טווח זמן בין הודעה להודעה</label>
+                              <input class="form-control" type="number" formControlName="range" name="range" id="range">
+                            </div>
+                         
+                            <div class="relative w-full mb-3 customSize half">
+                                <input type="submit" value="סיים" class=" form-control">
+                            </div>
+                  
+                      </form>
+                  </div>
+                  <!-- <div class="btn-wrapper text-center"> -->
+<!-- <div id="allPage" >
+  <div id="newForm"> -->
+    
+  </div>  </div>  </div>  </div>  </div> 
+ <!-- </div>  </div> -->
+
+
+ <!-- /////////// -->
+
+ <!-- <a routerLink="/SelectGuest">try</a>
+<router-outlet></router-outlet> -->
+
+
