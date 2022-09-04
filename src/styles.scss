@@ -1,0 +1,22 @@
+/* You can add global styles to this file, and also import other style files */
+// @import '../../styles/themes';
+//D:\פרויקט גמר\AngularProject\node_modules\@angular\material\prebuilt-themes\indigo-pink.css
+@import'../node_modules/@angular/material/prebuilt-themes/indigo-pink.css';
+@import'./assets/scss/black-dashboard.scss';
+@import'../node_modules/@nebular/theme/styles/prebuilt/dark.css';
+@import'../node_modules/@fortawesome/fontawesome-free/css/all.min.css';
+@import'./assets/styles/tailwind.css';
+// import  indigo-pink.css from "../";
+// "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+// "src/assets/scss/black-dashboard.css",
+//               {
+//                 "input": "node_modules/@nebular/theme/styles/prebuilt/dark.css"
+//               },
+//               {
+//                 "input": "node_modules/@fortawesome/fontawesome-free/css/all.min.css"
+//               },src/assets/styles/tailwind.css
+//               {
+//                 "input": ""
+//               }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

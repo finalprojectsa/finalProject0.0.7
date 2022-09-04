@@ -1,0 +1,17 @@
+.half{
+    width: 48%;
+}
+.third{
+    width: 20%;
+}
+.seven{
+    width: 76%;
+}
+.three{
+    width: 31.33333333333333333333333333333333%;
+}
+.customSize{
+    display: inline-block;
+    margin-right: 1%;
+    margin-left: 1%;
+}

@@ -1,0 +1,49 @@
+<table *ngIf="list!=null">
+    <div>
+        <tr>
+            <th>שם</th>
+            <th>אב</th>
+            <th>חותן</th>
+            <th>כתובת</th>
+            <th>מקום לימודים</th>
+            <th>מקום תפילה</th>
+            <th>טלפון</th>
+            <th>פלאפון</th>
+            <th></th>
+        </tr>
+    </div>
+    <div *ngFor="let p of list">
+        <!-- <tr *ngIf="p.cellephone != '000000000' && p.telephone != '000000000'"> -->
+
+            <td>
+                <p>{{p.title+" "+p.firstName+" "+p.lastName+" "+p.suffix}}</p>
+            </td>
+            <td>
+                <p>{{dataSer.peopleList[p.fatherCode].firstName}}</p>
+            </td>
+            <td>
+                <p>{{dataSer.peopleList[p.fatherInLawCode].firstName+"
+                    "+dataSer.peopleList[p.fatherInLawCode].lastName}}</p>
+            </td>
+            <td>
+                <p>{{p.street+" "+p.city}}</p>
+            </td>
+            <td>
+                <p>{{p.educationPlace}}</p>
+            </td>
+            <td>
+                <p>{{p.davenPlace}}</p>
+            </td>
+            <td>
+                <p>{{p.telephone}}</p>
+            </td>
+            <td>
+                <p>{{p.cellephone}}</p>
+            </td>
+            <td>
+                <input type="checkbox" name="" id="" [checked]="dataSer.selectedList[p.personCode]"
+                    (change)="select(p.personCode)">
+            </td>
+        <!-- </tr> -->
+    </div>
+</table>
