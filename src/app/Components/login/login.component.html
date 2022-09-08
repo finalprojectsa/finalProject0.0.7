@@ -45,6 +45,7 @@
               >
               <option *ngFor="let dC of dataSer.areaCodeList" [value]="dC">{{dC}}</option>
             </select>
+            <app-required-validation [value]="loginForm2.controls['dialingCode']"></app-required-validation>
             </div>
 
             <div class="relative w-full mb-3">
@@ -59,9 +60,8 @@
                 class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                 placeholder="Phone"
                 formControlName="phone"
-                #phone
               />
-              <label>{{this.phone.length}}</label><label>/7</label>
+            <app-phone-validation [phone]="loginForm2.controls['phone']"></app-phone-validation>
             </div>
             <div>
               <label class="inline-flex items-center cursor-pointer">

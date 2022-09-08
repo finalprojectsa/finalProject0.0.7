@@ -41,15 +41,13 @@
                     <div class="btn-wrapper text-center">
                         <button
                             class="bg-white active:bg-blueGray-50 text-blueGray-700 font-normal px-4 py-2 rounded outline-none focus:outline-none mr-2 mb-1 uppercase shadow hover:shadow-md inline-flex items-center font-bold text-xs ease-linear transition-all duration-150"
-                            type="button"
-                            (click)="changeSonFlag(true)">
+                            type="button" (click)="changeSonFlag(true)">
                             <!-- <img alt="..." class="w-5 mr-1" src="assets/img/github.svg" /> -->
                             בן
                         </button>
                         <button
                             class="bg-white active:bg-blueGray-50 text-blueGray-700 font-normal px-4 py-2 rounded outline-none focus:outline-none mr-1 mb-1 uppercase shadow hover:shadow-md inline-flex items-center font-bold text-xs ease-linear transition-all duration-150"
-                            type="button"
-                            (click)="changeSonFlag(false)">
+                            type="button" (click)="changeSonFlag(false)">
                             <!-- <img alt="..." class="w-5 mr-1" src="assets/img/google.svg" /> -->
                             חתן
                         </button>
@@ -58,9 +56,9 @@
                 </div>
                 <div class="flex-auto px-4 lg:px-10 py-10 pt-0">
                     <div class="text-blueGray-400 text-center mb-3 font-bold">
-              <small *ngIf="son">הוספת בן </small>
-              <small *ngIf="!son">הוספת חתן </small>
-            </div>
+                        <small *ngIf="son">הוספת בן </small>
+                        <small *ngIf="!son">הוספת חתן </small>
+                    </div>
                     <form [formGroup]="addPersonForm" (ngSubmit)="submitAddPersonForm($event)">
                         <div class="relative w-full mb-3 customSize half">
                             <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
@@ -90,6 +88,8 @@
                             <input
                                 class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                                 placeholder="קידומת" formControlName="cellDialingCode" />
+                            <app-required-validation [value]="addPersonForm.controls['cellDialingCode']">
+                            </app-required-validation>
                         </div>
 
                         <div class="relative w-full mb-3 customSize seven">
@@ -100,7 +100,12 @@
                             <input type="text"
                                 class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                                 placeholder="פלאפון" formControlName="cellphone" />
+                            <app-phone-validation [phone]="addPersonForm.controls['cellphone']">
+                            </app-phone-validation>
                         </div>
+
+
+
                         <div class="relative w-full mb-3 customSize third">
                             <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
                                 htmlFor="grid-password">
@@ -109,6 +114,8 @@
                             <input
                                 class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                                 placeholder="קידומת" formControlName="phoneDialingCode" />
+                            <app-required-validation [value]="addPersonForm.controls['phoneDialingCode']">
+                            </app-required-validation>
                         </div>
 
                         <div class="relative w-full mb-3 customSize seven">
@@ -119,13 +126,16 @@
                             <input type="text"
                                 class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                                 placeholder="טלפון" formControlName="phone" />
+                            <app-phone-validation [phone]="addPersonForm.controls['phone']"></app-phone-validation>
                         </div>
+
+
                         <div class="relative w-full mb-3 customSize three">
                             <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
                                 htmlFor="grid-password">
                                 עיר
                             </label>
-                            <input formControlName="city" 
+                            <input formControlName="city"
                                 class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                                 placeholder="עיר" />
                         </div>
@@ -144,7 +154,7 @@
                                 htmlFor="grid-password">
                                 מקום תפילה
                             </label>
-                            <input formControlName="davenPlace" 
+                            <input formControlName="davenPlace"
                                 class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                                 placeholder="מקום תפילה" />
                         </div>
@@ -153,7 +163,7 @@
                                 htmlFor="grid-password">
                                 מקום לימודים
                             </label>
-                            <input formControlName="educationPlace" 
+                            <input formControlName="educationPlace"
                                 class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                                 placeholder="מקום לימודים" />
                         </div>
@@ -162,7 +172,7 @@
                                 htmlFor="grid-password">
                                 תואר
                             </label>
-                            <input formControlName="title" 
+                            <input formControlName="title"
                                 class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                                 placeholder="תואר" />
                         </div>
@@ -175,32 +185,36 @@
                                 class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                                 placeholder="כינוי" />
                         </div>
-                        <div class="relative w-full mb-3 customSize third">
-                            <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
-                                htmlFor="grid-password">
-                                קידומת
-                            </label>
-                            <select
-                                class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                                placeholder="קידומת" formControlName="fatherInlawDialingCode">
-                                <option *ngFor="let dC of dataSer.areaCodeList" [value]="dC">{{dC}}</option>
-                            </select>
-                        </div>
+                        <div>
+                            <div class="relative w-full mb-3 customSize third">
+                                <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                                    htmlFor="grid-password">
+                                    קידומת
+                                </label>
+                                <select
+                                    class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                                    placeholder="קידומת" formControlName="fatherInlawDialingCode">
+                                    <option *ngFor="let dC of dataSer.areaCodeList" [value]="dC">{{dC}}</option>
+                                </select>
+                                <app-required-validation [value]="addPersonForm.controls['fatherInlawDialingCode']">
+                                </app-required-validation>
+                            </div>
+                            <div class="relative w-full mb-3 customSize seven">
+                                <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                                    htmlFor="grid-password" *ngIf="son">
+                                    פלאפון שווער
+                                </label>
+                                <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                                    htmlFor="grid-password" *ngIf="!son">
+                                    פלאפון אב
+                                </label>
+                                <input type="text"
+                                    class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                                    placeholder="פלאפון" formControlName="fatherInlawPhone" />
+                                <app-phone-validation [phone]="addPersonForm.controls['fatherInlawPhone']">
+                                </app-phone-validation>
+                            </div>
 
-                        <div class="relative w-full mb-3 customSize seven">
-                            <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
-                                htmlFor="grid-password"
-                                *ngIf="son">
-                                פלאפון שווער
-                            </label>
-                            <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
-                                htmlFor="grid-password"
-                                *ngIf="!son">
-                                פלאפון אב
-                            </label>
-                            <input type="text"
-                                class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                                placeholder="פלאפון" formControlName="fatherInlawPhone" />
                         </div>
                         <div>
                             <label class="inline-flex items-center cursor-pointer">
@@ -215,8 +229,7 @@
                             </label>
                         </div>
                         <div class="text-center mt-6">
-                            <input value="הוסף" 
-                            [disabled]="!addPersonForm.valid"
+                            <input value="הוסף" [disabled]="!addPersonForm.valid"
                                 class="bg-blueGray-800 text-white active:bg-blueGray-600 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150"
                                 type="submit" />
                         </div>
