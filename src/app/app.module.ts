@@ -39,6 +39,8 @@ import { Ng2SmartTableModule } from 'ng2-smart-table';
 // import { ThemeModule } from '../../@theme/theme.module';
 // import { FormsRoutingModule } from './forms-routing.module';
 import { FormsModule as ngFormsModule } from '@angular/forms';
+import { PhoneValidationComponent } from './Components/phone-validation/phone-validation.component';
+import { RequiredValidationComponent } from './Components/required-validation/required-validation.component';
 
 
 
@@ -59,7 +61,9 @@ import { FormsModule as ngFormsModule } from '@angular/forms';
     ViewOccasionComponent,
     SelectGuestComponent,
     RecordDetailsComponent,
-    SelectSpecifiedGuestComponent
+    SelectSpecifiedGuestComponent,
+    PhoneValidationComponent,
+    RequiredValidationComponent
     
   ],
   imports: [

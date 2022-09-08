@@ -1,0 +1,1 @@
+<label *ngIf="(phone.touched || phone.dirty) && !phone.valid" [ngStyle]="{'color': phone.valid ? 'green':'red'}" class="align-right">{{phone.value.length}}/7</label>

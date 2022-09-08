@@ -7,6 +7,7 @@ import { PeopleService } from "src/app/Services/people.service";
 @Component({
   selector: "app-login2",
   templateUrl: "./login.component.html",
+  styleUrls: ['./login.component.css']
 })
 export class LoginComponent2 implements OnInit {
   constructor(public dataSer: DataService,
