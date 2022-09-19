@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { Person } from 'src/app/Classes/person';
 import { DataService } from 'src/app/Services/data.service';
 import { PeopleService } from 'src/app/Services/people.service';
+import { NgxSmartModalService } from 'ngx-smart-modal';
 
 @Component({
   selector: 'app-select-guest',
@@ -15,7 +16,7 @@ export class SelectGuestComponent implements OnInit {
   constructor(private router: Router,
     private peopleSer: PeopleService,
     public dataSer: DataService,
-    // public modalRef: MdbModalRef<SelectGuestComponent>
+    public ngxSmartModalService: NgxSmartModalService
     ) { }
   //הגדרת משתנה לשמירת הקוד הגבוה ביותר על מנת לדעת את אורך מערך העזר
   length: number = -1;
@@ -25,8 +26,7 @@ export class SelectGuestComponent implements OnInit {
   ngOnInit(): void {
     alert("select guest")
     if (this.dataSer.peopleList == null) {
-      this.peopleSer.GetAllPeople().subscribe(
-        
+      this.peopleSer.GetAllPeople().subscribe(     
         data => {
           debugger;
           alert("in")
@@ -259,6 +259,9 @@ export class SelectGuestComponent implements OnInit {
       davenPlace: {
         title: 'בית כנסת'
       }
-    }
+      
+    },
+    
+    
   }
 }

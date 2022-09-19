@@ -6,6 +6,10 @@
 @import'../node_modules/@nebular/theme/styles/prebuilt/dark.css';
 @import'../node_modules/@fortawesome/fontawesome-free/css/all.min.css';
 @import'./assets/styles/tailwind.css';
+@import "~ngx-smart-modal/ngx-smart-modal";
+@import'../node_modules/@nebular/theme/styles/global/tables/smart-table.theme';
+@import'../node_modules/@nebular/theme/styles/core/mixins';
+///node_modules/@nebular/theme/styles/core/_mixins.scss
 // import  indigo-pink.css from "../";
 // "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
 // "src/assets/scss/black-dashboard.css",
