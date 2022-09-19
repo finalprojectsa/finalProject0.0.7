@@ -1,10 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule,CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms'
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './Components/ourlogin/login.component';
-import {  LoginComponent2} from './Components/login/login.component';
+import { LoginComponent2} from './Components/login/login.component';
 import { MenuComponent } from './Components/menu/menu.component';
 import { AddPersonComponent } from './Components/add-person/add-person.component';
 import { OrderOccasionComponent } from './Components/order-occasion/order-occasion.component';
@@ -33,6 +33,7 @@ import {PlatformModule} from '@angular/cdk/platform'
 // import {PortalModule} from '@angular/cdk/portal'
 import {BidiModule} from '@angular/cdk/bidi'
 import { Ng2SmartTableModule } from 'ng2-smart-table';
+import { NgxSmartModalModule } from 'ngx-smart-modal';
 
 
 
@@ -64,15 +65,20 @@ import { FormsModule as ngFormsModule } from '@angular/forms';
   ],
   imports: [
    
-Ng2SmartTableModule,
+    Ng2SmartTableModule,
     BrowserModule,
     ReactiveFormsModule,
     routingModule,
     RouterModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    NbInputModule
+    NbInputModule,
+    NgxSmartModalModule.forRoot()
     
+    
+  ],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
   ],
   providers: [],
   bootstrap: [AppComponent]

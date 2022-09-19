@@ -11,6 +11,8 @@ import { OccasionTypeService } from '../../Services/occasion-type.service';
 import { InvitesService } from '../../Services/invites.service';
 import { RecordDetailsComponent } from '../record-details/record-details.component'
 import { PeopleService } from 'src/app/Services/people.service';
+import { NgxSmartModalService } from 'ngx-smart-modal';
+import { SelectGuestComponent } from '../select-guest/select-guest.component';
 @Component({
   selector: 'app-order-occasion',   
   templateUrl: './order-occasion.component.html',
@@ -24,8 +26,9 @@ export class OrderOccasionComponent implements OnInit {
     public dataSer: DataService,
     private occasionSer: OccasionService,
     private invitesSer:InvitesService,
-    private peopleSer:PeopleService) { }
-   
+    private peopleSer:PeopleService,
+    public ngxSmartModalService: NgxSmartModalService) { }
+
     dataP={};
   // //הגדרת מערך לסוגי הארועים
   // public occsionTypeList: Array<OccasionTypes> = null;
@@ -34,6 +37,7 @@ export class OrderOccasionComponent implements OnInit {
   public orderOccasionForm: FormGroup = null;
 
   ngOnInit(): void {
+
 
      alert("order")
       
@@ -67,6 +71,8 @@ export class OrderOccasionComponent implements OnInit {
   //פונקציה לנווט לבחירת אורחים
   navigateToSelectGuest() {
     //this.router.navigate(['/Menu/OrderOccasion/SelectGuest'])
+    this.ngxSmartModalService.create('myModal2', SelectGuestComponent).open()
+
   }
   //פונקציה לנווט להגדרת פרטי הקלטה
 
