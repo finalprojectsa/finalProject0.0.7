@@ -12,10 +12,10 @@ import { InvitesService } from '../../Services/invites.service';
 import { RecordDetailsComponent } from '../record-details/record-details.component'
 import { PeopleService } from 'src/app/Services/people.service';
 @Component({
-  selector: 'app-order-occasion',   
+  selector: 'app-order-occasion',
   templateUrl: './order-occasion.component.html',
   styleUrls: ['./order-occasion.component.css']
-  
+
 })
 export class OrderOccasionComponent implements OnInit {
 
@@ -23,10 +23,10 @@ export class OrderOccasionComponent implements OnInit {
     private router: Router,
     public dataSer: DataService,
     private occasionSer: OccasionService,
-    private invitesSer:InvitesService,
-    private peopleSer:PeopleService) { }
-   
-    dataP={};
+    private invitesSer: InvitesService,
+    private peopleSer: PeopleService) { }
+
+  dataP = {};
   // //הגדרת מערך לסוגי הארועים
   // public occsionTypeList: Array<OccasionTypes> = null;
 
@@ -35,10 +35,10 @@ export class OrderOccasionComponent implements OnInit {
 
   ngOnInit(): void {
 
-     alert("order")
-      
-    
-  
+    alert("order")
+
+
+
     //קבלת רשימת סוגי הארועים מהשרת
     if (this.dataSer.occsionTypeList == null) {
       this.occsionTypeSer.GetAllOccasionType().subscribe(
@@ -57,13 +57,13 @@ export class OrderOccasionComponent implements OnInit {
       chooseGuest: new FormControl("בחר אורחים לאירוע"),
       insertRecording: new FormControl("הכנס הקלטה"),
       recordDetails: new FormControl("הכנס פרטי הקלטה"),
-      firstMessage:new FormControl("",Validators.required),
-      repetition:new FormControl("",[Validators.required,Validators.min(1)]),
-      range:new FormControl("",[Validators.required,Validators.min(1)]),
-      occasionDate:new FormControl("",Validators.required)
+      firstMessage: new FormControl("", Validators.required),
+      repetition: new FormControl("", [Validators.required, Validators.min(1)]),
+      range: new FormControl("", [Validators.required, Validators.min(1)]),
+      occasionDate: new FormControl("", Validators.required)
     })
   }
-
+  file: File = null;
   //פונקציה לנווט לבחירת אורחים
   navigateToSelectGuest() {
     //this.router.navigate(['/Menu/OrderOccasion/SelectGuest'])
@@ -75,8 +75,9 @@ export class OrderOccasionComponent implements OnInit {
   }
   //פונקציה להכנסת הקלטה
   insertRecording() {
-  
-     alert("הכנס הקלטה")
+    debugger
+    this.file = this.orderOccasionForm.controls['insertRecording'].value[0];
+     alert(this.file.name)
   }
   //הגדרת משתנה שישמור את קוד הארוע שניתן באופן אוטומטי בשרת
   //על מנת לעדכן בטבלת מוזמנים
@@ -92,7 +93,7 @@ export class OrderOccasionComponent implements OnInit {
     alert("אאאאאאאאאא")
     this.newOccasion = new Occasion(0,
       //this.dataSer.currentUser.personCode,
-      JSON.parse(sessionStorage.getItem("currentUser")).personCode, 
+      JSON.parse(sessionStorage.getItem("currentUser")).personCode,
       dataToSave.occasionDate,
       "קובץ הקלטה",
       dataToSave.repetition,
@@ -107,19 +108,19 @@ export class OrderOccasionComponent implements OnInit {
         this.lastCode = data[data.length - 1].occasionCode
         for (let index = 1; index < this.dataSer.selectedList.length; index++) {
           if (this.dataSer.selectedList[index]) {
-              this.newInvite = new Invites(0,this.lastCode,0,false,null,0,index)
-              this.newInvites.push(this.newInvite)
+            this.newInvite = new Invites(0, this.lastCode, 0, false, null, 0, index)
+            this.newInvites.push(this.newInvite)
           }
         }
         //server call to add the invites 
         this.invitesSer.AddInviteeList(this.newInvites).subscribe(
-          data=>{
+          data => {
             debugger
-              alert("הצלחה")
+            alert("הצלחה")
           },
-          err=>{
+          err => {
             debugger
-              alert("כשלון")
+            alert("כשלון")
           }
         );
       },
@@ -137,27 +138,26 @@ export class OrderOccasionComponent implements OnInit {
   }
 
 
-  
- //data = this.jsonObj;
 
- 
-//  data = [
-//   {
-//     id: 1,
-//     name: "Leanne Graham",
-//     username: "Bret",
-//     email: "Sincere@april.biz"
-//   },
-//   // ... other rows here
-//   {
-//     id: 11,
-//     name: "Nicholas DuBuque",
-//     username: "Nicholas.Stanton",
-//     email: "Rey.Padberg@rosamond.biz"
-//   }
-// ];
+  //data = this.jsonObj;
+
+
+  //  data = [
+  //   {
+  //     id: 1,
+  //     name: "Leanne Graham",
+  //     username: "Bret",
+  //     email: "Sincere@april.biz"
+  //   },
+  //   // ... other rows here
+  //   {
+  //     id: 11,
+  //     name: "Nicholas DuBuque",
+  //     username: "Nicholas.Stanton",
+  //     email: "Rey.Padberg@rosamond.biz"
+  //   }
+  // ];
 
 }
- 
 
- 
+
