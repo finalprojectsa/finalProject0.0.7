@@ -18,7 +18,9 @@ import { SelectSpecifiedGuestComponent } from './Components/select-specified-gue
 import {AuthComponent}from'./Components/auth/auth.component'
 import { AuthNavbarComponent } from "./Components/auth-navbar/auth-navbar.component";
 import {RegisterComponent} from "./Components/register/register.component"
-import { NbInputModule } from '@nebular/theme';
+import { NbInputModule, NbSearchService, NbSearchModule, NbLayoutModule, NbCardModule, NbSidebarModule } from '@nebular/theme';
+import { FormsModule } from '@angular/forms';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // import * as cdk from 'aws-cdk-lib';
 import { NbThemeModule } from '@nebular/theme';
@@ -77,9 +79,15 @@ import { RequiredValidationComponent } from './Components/required-validation/re
     HttpClientModule,
     BrowserAnimationsModule,
     NbInputModule,
-    NgxSmartModalModule.forRoot()
-    
-    
+    NbThemeModule.forRoot({ name: 'dark' }),
+    NgxSmartModalModule.forRoot(),
+    NbSearchModule,
+    NbLayoutModule,
+    NbCardModule,
+    NbSidebarModule,
+    FormsModule
+
+
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

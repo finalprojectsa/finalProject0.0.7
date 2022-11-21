@@ -1,4 +1,40 @@
-<table *ngIf="occasionList.length>0">
+ 
+ <!-- <nb-layout-header fixed *ngIf="occasionList.length>0" id="layout"> -->
+    <!-- <nb-search type="rotate-layout" id="search">חיפוש</nb-search> -->
+<!-- </nb-layout-header> -->
+ 
+
+<!-- <nb-layout class="front">
+    <nb-layout-header fixed class="front"> -->
+    <!-- </nb-layout-header>
+    <nb-sidebar class="front">Sidebar</nb-sidebar>
+  
+    <nb-layout-column class="colored-column-basic" class="front">
+      <nb-card accent="info" class="front">
+        <nb-card-header class="front">Interstellar Cloud</nb-card-header>
+        <nb-card-body class="front">
+          A nebula is an interstellar cloud of dust, hydrogen, helium and other ionized gases.
+          Originally, nebula was a name for any diffuse astronomical object,
+          including galaxies beyond the Milky Way.
+        </nb-card-body>
+      </nb-card>
+    </nb-layout-column>
+  </nb-layout> -->
+
+
+  <div class="main">
+    <div class="front"  >
+      <form action="">
+      <nb-search [(ngModel)] = "searchValue"  id="searchValue" name="searchValue"
+        type="rotate-layout" class="front" aria-valuetext="search"></nb-search>
+      <!-- (keyup.enter)="search(searchValue.value)" -->
+    </form>
+
+      </div>
+<div class="ViewOccasion">
+
+  
+<table *ngIf="occasionList.length>0" id="tableViewOccasion" class="front">
     <tr>
         <th>סוג אירוע</th>
         <th> תאריך</th>
@@ -7,11 +43,11 @@
         <th>תאריך הפצה ראשונית</th>
         <th>טווח</th>
     </tr>
-    <tr *ngFor="let o of occasionList">
+    <tr *ngFor="let o of filterOccasionList">
        
         <td>
             <div *ngFor="let ot of dataSer.occsionTypeList">
-                <p *ngIf="o.occasionTypeCode == ot.occasionTypeCode">
+                <p *ngIf="o.occasionTypeCode == ot.occasionTypeCode" id="occasionTypeText">
                      {{ot.occasionTypename}}
                 </p>
             </div>
@@ -23,4 +59,12 @@
         <td>{{o.range}}</td>
     </tr>
 </table>
-<p *ngIf=" !(occasionList.length>0)">אין לך אירועים</p>
+
+
+<br/>
+
+
+<p *ngIf=" !(occasionList.length>0)" class="front" id="noOccasions">אין לך אירועים</p>
+</div>
+
+</div>

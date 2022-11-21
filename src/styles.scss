@@ -1,3 +1,10 @@
+@import 'themes';
+
+@import '~@nebular/theme/styles/globals';
+
+@include nb-install() {
+  @include nb-theme-global();
+};
 /* You can add global styles to this file, and also import other style files */
 // @import '../../styles/themes';
 //D:\פרויקט גמר\AngularProject\node_modules\@angular\material\prebuilt-themes\indigo-pink.css
@@ -9,6 +16,7 @@
 @import "~ngx-smart-modal/ngx-smart-modal";
 @import'../node_modules/@nebular/theme/styles/global/tables/smart-table.theme';
 @import'../node_modules/@nebular/theme/styles/core/mixins';
+@import'../node_modules/@nebular/theme/styles/prebuilt/dark.css';
 ///node_modules/@nebular/theme/styles/core/_mixins.scss
 // import  indigo-pink.css from "../";
 // "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",

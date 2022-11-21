@@ -1,0 +1,53 @@
+#tableViewOccasion{
+    /* z-index: 5;
+    position: absolute; */
+    border-width: 5px;
+    /* padding-top: 100px; */
+    /* align-self: center; */
+}
+.ViewOccasion{
+    display: flex;
+  justify-content: center;
+}
+
+table, th , td  {
+    border: 1px solid grey;
+    border-collapse: collapse;
+    padding: 5px;
+  }
+  table tr:nth-child(odd) {
+    background-color: #f1f1f1;
+  }
+  table tr:nth-child(even) {
+    background-color: #ffffff;
+  }
+
+  #occasionTypeText{
+     color: gray;
+  }
+  /* #search{
+    z-index: 5;
+    position: absolute; 
+ padding-bottom: 50px;
+   }  */
+  .front{
+    z-index: 5;
+    position: absolute;
+  }
+  #noOccasions{
+    font-style: oblique;
+    font-size: xx-large;
+    color:darkorange;
+  }
+  /* #layout{
+    border-width: 5px;
+    border-color: aqua;
+  }  */
+  td, th {
+    color:gray
+  }
+  /* .main{
+    display: flex;
+align-items: flex-start;  } */
+
+  
