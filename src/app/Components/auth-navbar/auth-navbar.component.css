@@ -1,3 +1,6 @@
 .sticky{
     position: fixed;
 }
+a{
+    text-decoration: none;
+}
