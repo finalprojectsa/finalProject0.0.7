@@ -14,6 +14,7 @@ import { CommonModule } from '@angular/common';
 import { RecordDetailsComponent } from './Components/record-details/record-details.component';
 import { AuthComponent} from './Components/auth/auth.component';
 import { RegisterComponent } from './Components/register/register.component';
+import {AddRecordingComponent} from './Components/add-recording/add-recording.component'
 
 const routerTable : Routes = [
     { path: "", redirectTo:"Login", pathMatch:"full"},
@@ -29,6 +30,8 @@ const routerTable : Routes = [
     children:[
         {path:"SelectGuest",component:SelectGuestComponent},
         {path:"RecordDetails",component:RecordDetailsComponent},
+        {path:"AddRecording",component:AddRecordingComponent},
+
     ] },
         { path:"ViewOccasion" , component:ViewOccasionComponent  }
     ] }
