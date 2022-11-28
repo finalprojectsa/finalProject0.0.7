@@ -45,8 +45,8 @@ import { FormsModule as ngFormsModule } from '@angular/forms';
 import { PhoneValidationComponent } from './Components/phone-validation/phone-validation.component';
 import { RequiredValidationComponent } from './Components/required-validation/required-validation.component';
 
-
-
+import {AddRecordingComponent} from './Components/add-recording/add-recording.component';
+import { NgAudioRecorderModule } from 'ng-audio-recorder';
 
 
 @NgModule({
@@ -66,11 +66,12 @@ import { RequiredValidationComponent } from './Components/required-validation/re
     RecordDetailsComponent,
     SelectSpecifiedGuestComponent,
     PhoneValidationComponent,
-    RequiredValidationComponent
+    RequiredValidationComponent,
+    AddRecordingComponent
     
   ],
   imports: [
-   
+    NgAudioRecorderModule,
     Ng2SmartTableModule,
     BrowserModule,
     ReactiveFormsModule,
@@ -85,7 +86,8 @@ import { RequiredValidationComponent } from './Components/required-validation/re
     NbLayoutModule,
     NbCardModule,
     NbSidebarModule,
-    FormsModule
+    FormsModule,
+    
 
 
   ],

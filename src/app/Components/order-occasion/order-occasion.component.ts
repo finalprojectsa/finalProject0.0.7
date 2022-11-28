@@ -29,6 +29,8 @@ export class OrderOccasionComponent implements OnInit {
     private peopleSer:PeopleService,
     public ngxSmartModalService: NgxSmartModalService) { }
 
+    //משתנה שמגדיר האם להציג את קומפוננטת הוספת ההקלטה
+    isAddRecording : Boolean
     dataP={};
   // //הגדרת מערך לסוגי הארועים
   // public occsionTypeList: Array<OccasionTypes> = null;
@@ -41,7 +43,7 @@ export class OrderOccasionComponent implements OnInit {
 
      alert("order")
       
-    
+    this.isAddRecording = false;
   
     //קבלת רשימת סוגי הארועים מהשרת
     if (this.dataSer.occsionTypeList == null) {
@@ -81,8 +83,9 @@ export class OrderOccasionComponent implements OnInit {
   }
   //פונקציה להכנסת הקלטה
   insertRecording() {
-  
-     alert("הכנס הקלטה")
+    //this.router.navigate(['/Menu/OrderOccasion/AddRecording'])
+    // alert("הכנס הקלטה")
+    this.isAddRecording = true;
   }
   //הגדרת משתנה שישמור את קוד הארוע שניתן באופן אוטומטי בשרת
   //על מנת לעדכן בטבלת מוזמנים
