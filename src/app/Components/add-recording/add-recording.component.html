@@ -1,21 +1,9 @@
-<!-- <div>add - recording</div>
-
-<input type= "button" value="התחל" (click)="startRecording()" class="addRecordingBtn"/>
-<br>
-<input type= "button" value="סיים" (click)="stopRecording()" class="addRecordingBtn"/>
-<br>
-<input type= "button" value="האזנה" (click)="hearRecording()" class="addRecordingBtn"/> -->
-
-<button (click)="startPlay()">start</button>
-<button (click)="stop()">stop</button>
-<button (click)="play()">play</button>
-<button (click)="save()">save</button>
-
-<!-- <audio controls>
-    <source src="../../../assets/recordings/פרשת תולדות תשפב - הרב ברוך רוזנבלום - כט חשון, תשפב31743461.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
-</audio> -->
-
-<audio controls>
-    <source [src]="audioBlobUrl" type="audio/mp3">
+<div id="divBtnRecording">
+  <button (click)="startPlay()" id="size" class="addRecordingBtn"><span>התחל</span></button>
+  <button (click)="stop()" class="addRecordingBtn"><span>עצור</span></button>
+  <input type="file" #file placeholder="Choose file" (change)="save(file.files)" style="display:none;">
+  <button type="button" class="addRecordingBtn" (click)="file.click()"><span>העלאת-קובץ</span></button>
+</div>
+<audio controls *ngIf="isAudioRecording && audioBlobUrl" id="audio">
+  <source [src]="audioBlobUrl" type="audio/mp3">
 </audio>
