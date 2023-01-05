@@ -1,8 +1,9 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Output ,EventEmitter} from "@angular/core";
 import { NgAudioRecorderService, OutputFormat } from 'ng-audio-recorder';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders,HttpEventType,HttpErrorResponse } from '@angular/common/http';
 import Recorder from 'recorder-js';
 import { DomSanitizer } from '@angular/platform-browser';
+import { DataService } from "src/app/Services/data.service";
 
 declare var MediaRecorder: any;
 const httpOptions = {
@@ -23,17 +24,16 @@ export class AddRecordingComponent implements OnInit {
   audioBlobUrl;
   blobFile = null;
   recordAudio;
+  isAudioRecording = false;
   sendObj = {
     audio: this.blobFile
   };
   audioContext =  new (AudioContext)({sampleRate: 16000});
   recorder = new Recorder(this.audioContext, {});
   constructor(private http: HttpClient,
-    private sanitizer: DomSanitizer) {
-    // private audioRecorderService: NgAudioRecorderService
-  //   this.audioRecorderService.recorderError.subscribe(recorderErrorCase => {
-  //     // Handle Error
-  // })
+    private sanitizer: DomSanitizer,
+    public dataSer: DataService) {
+  
   }
 
 
@@ -89,27 +89,6 @@ export class AddRecordingComponent implements OnInit {
   }
   
 
-//   startRecording() {
-//     debugger;
-//     alert("start")
-//     this.audioRecorderService.startRecording();
-    
-// }
-
-// stopRecording() {
-//      this.audioRecorderService.stopRecording(OutputFormat.WEBM_BLOB).then((output) => {
-//         // do post output steps
-//      }).catch(errrorCase => {
-//          // Handle Error
-//      });
-// }
-
-// hearRecording(){
-//   let audio = new Audio();
-//   audio.src = "../../../assets/audio/alarm.wav";
-//   audio.load();
-//   audio.play();
-// }
 async startPlay() {
   this.recorder = await this.recordAudio();
   this.recorder.start();
@@ -117,16 +96,28 @@ async startPlay() {
 
 async stop() {
   debugger;
+  this.isAudioRecording = true;
    this.audio = await this.recorder.stop();
   this.audioBlobUrl = this.sanitizer.bypassSecurityTrustUrl(this.copyURL)
 }
 
-async play() {
+save = (files) => {
   
-  this.audio.play();
-}
-async save() {
-  
+  if (files.length === 0) {
+    return;
+  }
+  let fileToUpload = <File>files[0];
+  const formData = new FormData();
+  alert(fileToUpload.name)
+  this.dataSer.recordingURLFile = fileToUpload.name;
+  formData.append('file', fileToUpload, fileToUpload.name);  
+  this.http.post('https://localhost:44301/api/upload', formData, {reportProgress: true, observe: 'events'})
+    .subscribe({
+      next: (event) => {
+      
+    },
+    error: (err: HttpErrorResponse) => console.log(err)
+  });
   
 }
 
