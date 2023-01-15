@@ -24,7 +24,7 @@ import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // import * as cdk from 'aws-cdk-lib';
 import { NbThemeModule } from '@nebular/theme';
-
+import{PageNotFoundComponent}from './Components/pageNotFound/pageNotFound';
 import {A11yModule} from '@angular/cdk/a11y'
 import {PlatformModule} from '@angular/cdk/platform'
 //import {} from '@angular/cdk/table'
@@ -67,7 +67,8 @@ import { NgAudioRecorderModule } from 'ng-audio-recorder';
     SelectSpecifiedGuestComponent,
     PhoneValidationComponent,
     RequiredValidationComponent,
-    AddRecordingComponent
+    AddRecordingComponent,
+    PageNotFoundComponent
     
   ],
   imports: [
