@@ -1,0 +1,15 @@
+
+#img{
+    z-index: 5;
+    position: absolute;
+    width: 70%;
+  background-position: center;
+  height: 79%;
+}
+#div
+{
+    display: flex;
+    justify-content: center;
+    padding-left: 65px;
+    padding-top: -1px;
+}

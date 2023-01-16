@@ -20,4 +20,6 @@ export class DataService {
   selectedList: Array<boolean> = null;
   //
   occsionTypeList:Array<OccasionTypes> = null;
+  //הגדרת הגישה אל הקובץ
+  recordingURLFile:String = null
 }

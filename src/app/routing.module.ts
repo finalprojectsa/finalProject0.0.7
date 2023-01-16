@@ -15,6 +15,7 @@ import { RecordDetailsComponent } from './Components/record-details/record-detai
 import { AuthComponent} from './Components/auth/auth.component';
 import { RegisterComponent } from './Components/register/register.component';
 import {AddRecordingComponent} from './Components/add-recording/add-recording.component'
+import { PageNotFoundComponent } from './Components/pageNotFound/pageNotFound';
 
 const routerTable : Routes = [
     { path: "", redirectTo:"Login", pathMatch:"full"},
@@ -33,7 +34,8 @@ const routerTable : Routes = [
         {path:"AddRecording",component:AddRecordingComponent},
 
     ] },
-        { path:"ViewOccasion" , component:ViewOccasionComponent  }
+        { path:"ViewOccasion" , component:ViewOccasionComponent  },
+        { path: '**', component:PageNotFoundComponent},
     ] }
 ]
 @NgModule({
