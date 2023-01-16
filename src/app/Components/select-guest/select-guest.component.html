@@ -36,13 +36,17 @@
     <button type="button" class="btn btn-primary">Save changes</button>
   </div> -->
 
-  <ngx-smart-modal #myModal identifier="myModal" id="modal">
-    <h1>Title</h1>
-    <p>Some stuff...</p>
-  
+  <ngx-smart-modal #myModal [identifier]="'myModal'" id="modal">
+    <h1>Title 2</h1>
+    <p>Hello</p>
     <button (click)="myModal.close()">Close</button>
+
+    
   </ngx-smart-modal>
+  <ng2-smart-table [settings]="settings" [source]="jsonObj" id="smartTable" (userRowSelect)="onUserRowSelect($event)"></ng2-smart-table>  
+  <input type="button" value="משפחה" (click)="showByRelative()"/>
+  <input type="button" value="נבחרים" (click)="showSelected()"/>
 
 
- <ng2-smart-table [settings]="settings" [source]="jsonObj" id="smartTable"></ng2-smart-table>  
+
 
