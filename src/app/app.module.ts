@@ -47,6 +47,7 @@ import { RequiredValidationComponent } from './Components/required-validation/re
 
 import {AddRecordingComponent} from './Components/add-recording/add-recording.component';
 import { NgAudioRecorderModule } from 'ng-audio-recorder';
+import { CheckboxComponent } from './Components/checkbox/checkbox.component';
 
 
 @NgModule({
@@ -68,8 +69,8 @@ import { NgAudioRecorderModule } from 'ng-audio-recorder';
     PhoneValidationComponent,
     RequiredValidationComponent,
     AddRecordingComponent,
+    CheckboxComponent
     PageNotFoundComponent
-    
   ],
   imports: [
     NgAudioRecorderModule,

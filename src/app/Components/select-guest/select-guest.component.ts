@@ -6,6 +6,9 @@ import { Person } from 'src/app/Classes/person';
 import { DataService } from 'src/app/Services/data.service';
 import { PeopleService } from 'src/app/Services/people.service';
 import { NgxSmartModalService } from 'ngx-smart-modal';
+import { AddPersonComponent } from '../add-person/add-person.component';
+import { NbButton, NbCheckboxComponent } from '@nebular/theme';
+import { CheckboxComponent } from '../checkbox/checkbox.component';
 
 @Component({
   selector: 'app-select-guest',
@@ -123,6 +126,7 @@ export class SelectGuestComponent implements OnInit {
   }
   //פונקציה להצגת אנשים נבחרים
   showSelected() {
+    debugger
     this.currentList = new Array<Person>();
     for (let index =1; index < this.dataSer.peopleList.length; index++) {
       if(this.dataSer.peopleList[index] != undefined && this.dataSer.peopleList[index] != null)
@@ -130,6 +134,7 @@ export class SelectGuestComponent implements OnInit {
         this.currentList.push(this.dataSer.peopleList[index]);
       }
     }
+    this.jsonObj = this.currentList;
   }
   //משתנים בוליאנים כדי לצין האם להציג רשימה נגללת
   placeFlag: boolean = false;
@@ -172,6 +177,7 @@ export class SelectGuestComponent implements OnInit {
   }
 
   showByRelative() {
+    debugger
     //מציאת כל הסבות הזקנים ביותר
     this.recorsiaToFindAllGrandFathers(this.dataSer.currentUser.personCode)
     this.currentList = new Array<Person>();
@@ -180,6 +186,7 @@ export class SelectGuestComponent implements OnInit {
     for (let index = 0; index < this.arrayRoot.length; index++) {
       this.findChildren(this.arrayRoot[index].personCode)
     }
+    this.jsonObj = this.currentList;
   }
   //מכניסים למערך את כל הסבות שאין להם אבא או שווער
   //הגדרת המערך
@@ -213,15 +220,15 @@ export class SelectGuestComponent implements OnInit {
     this.placeFlag = false;
   }
 
-
-
-
-
-
+  onUserRowSelect(e){
+    this.dataSer.selectedList[e.data.personCode] = (!this.dataSer.selectedList[e.data.personCode])
+  }
 
   // 
 
   settings = {
+    actions: false,
+    selectMode: 'multi',
     columns: {
       title:{
         title: 'תואר'
@@ -259,9 +266,6 @@ export class SelectGuestComponent implements OnInit {
       davenPlace: {
         title: 'בית כנסת'
       }
-      
-    },
-    
-    
+    }, 
   }
 }
