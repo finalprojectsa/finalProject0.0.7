@@ -103,7 +103,7 @@ export class OrderOccasionComponent implements OnInit {
       //this.dataSer.currentUser.personCode,
       JSON.parse(sessionStorage.getItem("currentUser")).personCode, 
       dataToSave.occasionDate,
-      this.dataSer.,
+      "",
       dataToSave.repetition,
       dataToSave.firstMessage,
       dataToSave.range,
