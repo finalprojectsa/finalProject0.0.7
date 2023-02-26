@@ -53,7 +53,12 @@
             </div>
         </td>
         <td>{{o.occasionDate}}</td>
-        <td>{{o.recordFile}}</td>
+        <td>{{o.recordFile}}
+          <button (click)="getRecording(o.recordFile)">נננננננננננננננננ</button>
+          <audio controls  id="audio" autoplay = true>
+            <source [src]="this.audioFile" type="audio/mp3">
+          </audio>
+        </td>
         <td>{{o.repetition}}</td>
         <td>{{o.firstMessage}}</td>
         <td>{{o.range}}</td>
@@ -66,5 +71,6 @@
 
 <p *ngIf=" !(occasionList.length>0)" class="front" id="noOccasions">אין לך אירועים</p>
 </div>
+
 
 </div>

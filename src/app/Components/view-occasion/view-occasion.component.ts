@@ -5,6 +5,7 @@ import { DataService } from 'src/app/Services/data.service';
 import { OccasionService } from '../../Services/occasion.service'
 import { OccasionTypeService } from '../../Services/occasion-type.service';
 import { NbSearchService } from '@nebular/theme';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-view-occasion',
@@ -16,7 +17,8 @@ export class ViewOccasionComponent implements OnInit {
   value = '';
   filterOccasionList: Array<Occasion> = null;
   searchValue:OccasionTypes = null;
-  constructor(private dataSer: DataService,
+  constructor(private http: HttpClient,
+              private dataSer: DataService,
               private occasionSer: OccasionService,
               private occsionTypeSer: OccasionTypeService,
               private searchService: NbSearchService) {
@@ -68,4 +70,16 @@ export class ViewOccasionComponent implements OnInit {
     }
   }
 
+getRecording(url){
+  debugger
+ this.http.get(`https://localhost:44301/api/A/download/צביקי רנד ומקהלת נרננה - מודים.mp3`)
+    .subscribe({
+      next: (event) => {
+        alert("success")
+      //this.audioFile = event;
+    },
+    error: (err: HttpErrorResponse) => console.log(err)
+  });
+}
+audioFile:FormData;
 }

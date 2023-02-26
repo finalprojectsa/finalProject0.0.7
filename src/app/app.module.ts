@@ -69,7 +69,7 @@ import { CheckboxComponent } from './Components/checkbox/checkbox.component';
     PhoneValidationComponent,
     RequiredValidationComponent,
     AddRecordingComponent,
-    CheckboxComponent
+    CheckboxComponent,
     PageNotFoundComponent
   ],
   imports: [
