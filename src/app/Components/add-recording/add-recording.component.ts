@@ -102,7 +102,7 @@ async stop() {
 }
 
 save = (files) => {
-  
+  debugger
   if (files.length === 0) {
     return;
   }
@@ -111,14 +111,16 @@ save = (files) => {
   alert(fileToUpload.name)
   this.dataSer.recordingURLFile = fileToUpload.name;
   formData.append('file', fileToUpload, fileToUpload.name);  
-  this.http.post('https://localhost:44301/api/upload', formData, {reportProgress: true, observe: 'events'})
-    .subscribe({
-      next: (event) => {
+  this.http.post('https://localhost:44301/api/A/upload', formData, {reportProgress: true, observe: 'events'})
+    .subscribe(
+      next => {
+      console.log();
       
     },
-    error: (err: HttpErrorResponse) => console.log(err)
-  });
-  
+    error => (err: HttpErrorResponse) => {
+      console.log(err)
+    })
+      
 }
 
 }

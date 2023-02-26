@@ -2,7 +2,7 @@
   <button (click)="startPlay()" id="size" class="addRecordingBtn"><span>התחל</span></button>
   <button (click)="stop()" class="addRecordingBtn"><span>עצור</span></button>
   <input type="file" #file placeholder="Choose file" (change)="save(file.files)" style="display:none;">
-  <button type="button" class="addRecordingBtn" (click)="file.click()"><span>העלאת-קובץ</span></button>
+  <button type="button" class="addRecordingBtn" (click)="file.click()" (change)="save(file.files)"><span>העלאת-קובץ</span></button>
 </div>
 <audio controls *ngIf="isAudioRecording && audioBlobUrl" id="audio">
   <source [src]="audioBlobUrl" type="audio/mp3">
